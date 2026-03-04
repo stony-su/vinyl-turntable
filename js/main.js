@@ -32,8 +32,8 @@ document.body.appendChild(renderer.domElement);
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x0d1e1e);
-scene.fog = new THREE.FogExp2(0x0d1e1e, 0.008);
+scene.background = new THREE.Color(0x241c14);
+scene.fog = new THREE.FogExp2(0x241c14, 0.009);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 200);
@@ -102,10 +102,10 @@ for (let i = 0; i < dustCount; i++) {
 }
 dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
 const dustMat = new THREE.PointsMaterial({
-  color: 0x80ffe0,
+  color: 0xffe8c0,
   size: 0.08,
   transparent: true,
-  opacity: 0.3,
+  opacity: 0.25,
   sizeAttenuation: true,
   depthWrite: false
 });

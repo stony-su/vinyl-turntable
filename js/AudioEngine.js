@@ -31,8 +31,10 @@ export class AudioEngine {
 
   async loadAll(tracks) {
     this.init();
+    // Don't block on resume – browser may require a user gesture first.
+    // The context will be resumed in the pointerdown/keydown handler.
     if (this.ctx.state === 'suspended') {
-      await this.ctx.resume();
+      this.ctx.resume().catch(() => {});
     }
     const promises = tracks.map(t => this.loadTrack(t.name, t.mp3));
     await Promise.all(promises);
